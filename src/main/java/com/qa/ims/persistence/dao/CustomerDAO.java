@@ -23,7 +23,9 @@ public class CustomerDAO implements Dao<Customer> {
 		Long id = resultSet.getLong("id");
 		String firstName = resultSet.getString("first_name");
 		String surname = resultSet.getString("surname");
-		return new Customer(id, firstName, surname);
+		String username = resultSet.getString("username");
+		String password = resultSet.getString("password");
+		return new Customer(id, firstName, surname, username, password);
 	}
 
 	/**
