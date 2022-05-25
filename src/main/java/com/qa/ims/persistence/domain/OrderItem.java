@@ -3,13 +3,13 @@ package com.qa.ims.persistence.domain;
 import java.util.Objects;
 
 public class OrderItem {
-	private int ID;
-	private float cost;
+	private long ID;
+	private double cost;
 	private String name;
-	private int orderID;
-	private int itemID;
+	private long orderID;
+	private long itemID;
 	
-	public OrderItem(float cost, String name, int orderID, int itemID) {
+	public OrderItem(double cost, String name, long orderID, long itemID) {
 		super();
 		this.cost = cost;
 		this.name = name;
@@ -17,7 +17,7 @@ public class OrderItem {
 		this.itemID = itemID;
 	}
 
-	public OrderItem(int iD, float cost, String name, int orderID, int itemID) {
+	public OrderItem(long iD, double cost, String name, long orderID, long itemID) {
 		super();
 		ID = iD;
 		this.cost = cost;
@@ -26,7 +26,7 @@ public class OrderItem {
 		this.itemID = itemID;
 	}
 
-	public int getID() {
+	public long getID() {
 		return ID;
 	}
 
@@ -34,7 +34,7 @@ public class OrderItem {
 		ID = iD;
 	}
 
-	public float getCost() {
+	public double getCost() {
 		return cost;
 	}
 
@@ -50,7 +50,7 @@ public class OrderItem {
 		this.name = name;
 	}
 
-	public int getOrderID() {
+	public long getOrderID() {
 		return orderID;
 	}
 
@@ -58,7 +58,7 @@ public class OrderItem {
 		this.orderID = orderID;
 	}
 
-	public int getItemID() {
+	public long getItemID() {
 		return itemID;
 	}
 
@@ -86,9 +86,10 @@ public class OrderItem {
 		if (getClass() != obj.getClass())
 			return false;
 		OrderItem other = (OrderItem) obj;
-		return ID == other.ID && Float.floatToIntBits(cost) == Float.floatToIntBits(other.cost)
+		return ID == other.ID && Double.doubleToLongBits(cost) == Double.doubleToLongBits(other.cost)
 				&& itemID == other.itemID && Objects.equals(name, other.name) && orderID == other.orderID;
 	}
+
 	
 	
 	
