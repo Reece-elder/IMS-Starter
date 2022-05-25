@@ -4,24 +4,24 @@ import java.util.Objects;
 
 public class Item {
 
-	private int id;
-	private float cost;
+	private long id;
+	private double cost;
 	private String name;
 	
-	public Item(float cost, String name) {
+	public Item(double cost, String name) {
 		super();
 		this.cost = cost;
 		this.name = name;
 	}
 
-	public Item(int id, float cost, String name) {
+	public Item(long id, double cost, String name) {
 		super();
 		this.id = id;
 		this.cost = cost;
 		this.name = name;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
@@ -29,7 +29,7 @@ public class Item {
 		this.id = id;
 	}
 
-	public float getCost() {
+	public double getCost() {
 		return cost;
 	}
 
@@ -64,9 +64,10 @@ public class Item {
 		if (getClass() != obj.getClass())
 			return false;
 		Item other = (Item) obj;
-		return Float.floatToIntBits(cost) == Float.floatToIntBits(other.cost) && id == other.id
+		return Double.doubleToLongBits(cost) == Double.doubleToLongBits(other.cost) && id == other.id
 				&& Objects.equals(name, other.name);
 	}
+
 	
 	
 }
