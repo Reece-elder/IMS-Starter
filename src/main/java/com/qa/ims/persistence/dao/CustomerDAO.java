@@ -49,7 +49,7 @@ public class CustomerDAO implements Dao<Customer> {
 		}
 		return new ArrayList<>();
 	}
-
+	@Override
 	public Customer readLatest() {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
