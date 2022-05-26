@@ -113,10 +113,12 @@ public class CustomerDAO implements Dao<Customer> {
 	public Customer update(Customer customer) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("UPDATE customers SET firstName = ?, lastName = ? WHERE id = ?");) {
+						.prepareStatement("UPDATE customers SET firstName = ?, lastName = ?, username = ?, password = ? WHERE id = ?");) {
 			statement.setString(1, customer.getFirstName());
 			statement.setString(2, customer.getSurname());
-			statement.setLong(3, customer.getId());
+			statement.setString(3, customer.getUsername());
+			statement.setString(4, customer.getPassword());
+			statement.setLong(5, customer.getId());
 			statement.executeUpdate();
 			return read(customer.getId());
 		} catch (Exception e) {
