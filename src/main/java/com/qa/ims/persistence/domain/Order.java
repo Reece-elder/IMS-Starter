@@ -4,32 +4,47 @@ import java.util.Objects;
 
 public class Order {
 	
-	private int orderID;
-	private int customerID;
-	public Order(int orderID, int customerID) {
+	private long id;
+	private long customerID;
+	private double cost;
+	public Order(long id, long customerID, double cost) {
 		super();
-		this.orderID = orderID;
+		this.id = id;
 		this.customerID = customerID;
+		this.cost = cost;
 	}
-	public int getOrderID() {
-		return orderID;
+	public long getId() {
+		return id;
 	}
-	public void setOrderID(int orderID) {
-		this.orderID = orderID;
+	public void setId(long id) {
+		this.id = id;
 	}
-	public int getCustomerID() {
+	public long getCustomerID() {
 		return customerID;
 	}
-	public void setCustomerID(int customerID) {
+	public void setCustomerID(long customerID) {
 		this.customerID = customerID;
+	}
+	public double getCost() {
+		return cost;
+	}
+	public void setCost(double cost) {
+		this.cost = cost;
 	}
 	@Override
 	public String toString() {
-		return "Order [orderID=" + orderID + ", customerID=" + customerID + "]";
+		return "Order [id=" + id + ", customerID=" + customerID + ", cost=" + cost + "]";
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(customerID, orderID);
+		final int prime = 31;
+		int result = 1;
+		long temp;
+		temp = Double.doubleToLongBits(cost);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + (int) (customerID ^ (customerID >>> 32));
+		result = prime * result + (int) (id ^ (id >>> 32));
+		return result;
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -40,8 +55,15 @@ public class Order {
 		if (getClass() != obj.getClass())
 			return false;
 		Order other = (Order) obj;
-		return customerID == other.customerID && orderID == other.orderID;
+		if (Double.doubleToLongBits(cost) != Double.doubleToLongBits(other.cost))
+			return false;
+		if (customerID != other.customerID)
+			return false;
+		if (id != other.id)
+			return false;
+		return true;
 	}
+	
 	
 	
 

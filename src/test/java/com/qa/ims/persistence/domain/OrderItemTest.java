@@ -1,14 +1,17 @@
-package com.qa.ims.persistence.domain;
+//package com.qa.ims.persistence.domain;
+//
 
-import org.junit.Test;
+// EVIDENCE OF PREVIOUS WORK, DO NOT USE
 
-import nl.jqno.equalsverifier.EqualsVerifier;
-
-public class OrderItemTest {
-	
-	@Test
-	public void testEquals() {
-		EqualsVerifier.simple().forClass(OrderItem.class).verify();
-	}
-
-}
+//import org.junit.Test;
+//
+//import nl.jqno.equalsverifier.EqualsVerifier;
+//
+//public class OrderItemTest {
+//	
+//	@Test
+//	public void testEquals() {
+//		EqualsVerifier.simple().forClass(OrderItem.class).verify();
+//	}
+//
+//}

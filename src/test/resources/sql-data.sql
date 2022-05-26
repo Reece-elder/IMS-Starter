@@ -1,1 +1,1 @@
-INSERT INTO `customers` (`first_name`, `surname`) VALUES ('jordan', 'harrison');
+INSERT INTO `customers` (`firstName`, `lastName`, `username`, `password`) VALUES ('jordan', 'harrison', 'JHarry', 'pass323');
