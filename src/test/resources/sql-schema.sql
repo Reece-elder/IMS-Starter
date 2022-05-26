@@ -1,3 +1,9 @@
+DROP schema if exists `IMSTestProject`;
+
+CREATE schema IF NOT EXISTS `IMSTestProject`;
+
+USE `IMSTestProject`;
+
 DROP TABLE IF EXISTS `customers`;
 
 CREATE table IF NOT EXISTS `customers`(

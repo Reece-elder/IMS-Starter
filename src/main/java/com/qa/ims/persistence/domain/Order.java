@@ -12,6 +12,13 @@ public class Order {
 		this.id = id;
 		this.customerID = customerID;
 		this.cost = cost;
+		
+		
+	}
+	public Order(long customerID, double cost) {
+		super();
+		this.customerID = customerID;
+		this.cost = cost;
 	}
 	public long getId() {
 		return id;
