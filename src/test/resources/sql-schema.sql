@@ -1,6 +1,6 @@
-DROP database if exists IMSTestProject;
+DROP SCHEMA if exists IMSTestProject;
 
-CREATE database IF NOT EXISTS `IMSTestProject`;
+CREATE SCHEMA IF NOT EXISTS `IMSTestProject`;
 
 USE `IMSTestProject`;
 
@@ -21,3 +21,21 @@ CREATE TABLE IF NOT EXISTS `items`(
 `cost` float NOT NULL,
 `name` varchar(45),
 PRIMARY KEY(`id`));
+
+DROP TABLE IF EXISTS `orders`;
+
+CREATE TABLE IF NOT EXISTS `orders`(
+    `id` int auto_increment,
+    `customerid` int,
+    `cost` float,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY(`customerID`) REFERENCES `customers`(`id`) ON DELETE CASCADE ON UPDATE CASCADE);
+
+DROP TABLE IF EXISTS `orderItems`;
+
+CREATE table IF NOT EXISTS `orderItems`(
+`orderID` int,
+`ItemID` int,
+
+FOREIGN KEY(`itemID`) REFERENCES `items`(`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN KEY(`orderID`) REFERENCES `orders`(`id`) ON DELETE CASCADE ON UPDATE CASCADE);

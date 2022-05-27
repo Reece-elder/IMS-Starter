@@ -61,11 +61,11 @@ public class CustomerControllerTest {
 		System.out.println("============================");
 		Customer updated = new Customer(1L, "chris", "perrins", "CPerrins", "pass221");
 		System.out.println(updated);
+		
 		Mockito.when(this.utils.getLong()).thenReturn(1L);
-		Mockito.when(this.utils.getString()).thenReturn(updated.getFirstName(), updated.getSurname(), updated.getUsername(), updated.getPassword());
+		Mockito.when(this.utils.getString()).thenReturn(updated.getFirstName(), updated.getLastName(), updated.getUsername(), updated.getPassword());
 		Mockito.when(this.dao.update(updated)).thenReturn(updated);
 		System.out.println(updated);
-		System.out.println(this.controller.update());
 		assertEquals(updated, this.controller.update());
 		
 //		Mockito.verify(this.utils, Mockito.times(1)).getLong();

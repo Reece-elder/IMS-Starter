@@ -74,7 +74,7 @@ public class CustomerDAO implements Dao<Customer> {
 				PreparedStatement statement = connection
 						.prepareStatement("INSERT INTO customers(firstName, lastName, username, password) VALUES (?, ?, ?, ?)");) {
 			statement.setString(1, customer.getFirstName());
-			statement.setString(2, customer.getSurname());
+			statement.setString(2, customer.getLastName());
 			statement.setString(3, customer.getUsername());
 			statement.setString(4, customer.getPassword());
 			statement.executeUpdate();
@@ -115,7 +115,7 @@ public class CustomerDAO implements Dao<Customer> {
 				PreparedStatement statement = connection
 						.prepareStatement("UPDATE customers SET firstName = ?, lastName = ?, username = ?, password = ? WHERE id = ?");) {
 			statement.setString(1, customer.getFirstName());
-			statement.setString(2, customer.getSurname());
+			statement.setString(2, customer.getLastName());
 			statement.setString(3, customer.getUsername());
 			statement.setString(4, customer.getPassword());
 			statement.setLong(5, customer.getId());
