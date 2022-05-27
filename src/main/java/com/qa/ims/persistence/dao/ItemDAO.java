@@ -74,7 +74,7 @@ public class ItemDAO implements Dao<Item>{
 	public Item update(Item item) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("UPDATE Item SET cost = ?, name = ? WHERE id = ?");) {
+						.prepareStatement("UPDATE items SET cost = ?, name = ? WHERE id = ?");) {
 			statement.setDouble(1, item.getCost());
 			statement.setString(2, item.getName());
 			statement.setLong(3, item.getId());
@@ -102,7 +102,17 @@ public class ItemDAO implements Dao<Item>{
 
 	@Override
 	public Item read(Long id) {
-		// TODO Auto-generated method stub
+		try (Connection connection = DBUtils.getInstance().getConnection();
+				PreparedStatement statement = connection.prepareStatement("SELECT * FROM items WHERE id = ?");) {
+			statement.setLong(1, id);
+			try (ResultSet resultSet = statement.executeQuery();) {
+				resultSet.next();
+				return modelFromResultSet(resultSet);
+			}
+		} catch (Exception e) {
+			LOGGER.debug(e);
+			LOGGER.error(e.getMessage());
+		}
 		return null;
 	}
 }
