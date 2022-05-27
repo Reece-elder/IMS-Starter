@@ -74,7 +74,7 @@ Eclipse (for testing environment)
         Foreign KEY (`product_id`) references products(`product_id`)
     );
 
--Run the .jar file.
+-Run the .jar file though the command line by traversing to the directory it is in (YOUR_DIRECTORY/IMS_Starter/target) and using the command 'Java -jar ims-0.01-jar-with-dependencies.jar'
 
 -Make your choices in the application by typing into the terminal as and when prompted. For example, when given the choice of CUSTOMERS, ITEMS, ORDERS and LEAVE, typing CUSTOMERS will lead to the CRUD menu where you may choose between CREATE, READ, UPDATE, DELETE and RETURN. Chooosing one of these options will allow you to directly interact with the MySQL database. 
 
